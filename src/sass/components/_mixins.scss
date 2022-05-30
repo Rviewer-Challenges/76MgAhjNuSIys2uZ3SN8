@@ -1,0 +1,21 @@
+@mixin animate($animation, $duration, $method, $times) {
+	animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name) {
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin mixin__button() {
+	display: flex;
+	justify-content: center;
+	flex-grow: 1;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 1px solid var(--color__transparent);
+	border-radius: 10px;
+	background-color: var(--color__transparent);
+	font-family: 'Poppins', sans-serif;
+}

@@ -1,0 +1,47 @@
+@import './board';
+@import './start';
+@import './history';
+
+.screen {
+	display: flex;
+	justify-content: center;
+	border: 1px solid var(--color__text);
+	background-color: var(--color__primary);
+	width: 90%;
+	@media (min-width: $MD) {
+		width: 80%;
+		min-height: 80%;
+	}
+}
+
+.game__controls {
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	width: 90%;
+	border: 1px solid var(--color__text);
+	padding: 10px;
+	color: var(--color__text);
+	@media (min-width: $MD) {
+		width: 80%;
+	}
+	&__info {
+        display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		@media (min-width: $MD) {
+			width: 100%;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+    &__actions{
+        display: flex;
+        justify-content: end;
+        margin-top: 15px;
+        button {
+            @include mixin__button;
+        }
+    }
+}
