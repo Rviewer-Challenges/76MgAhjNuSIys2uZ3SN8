@@ -1,0 +1,12 @@
+.theme {
+    --color__background: #{$WHITE};
+    --color__secondary: #{$GRAY-100};
+    --color__transparent: #{rgba($color: $BLACK, $alpha: .1)};
+    --color__text: #{$BLACK};
+    &--dark {
+        --color__background: #{$DARK-900};
+        --color__secondary: #{$DARK-600};
+        --color__transparent: #{rgba($color: $WHITE, $alpha: .1)};
+        --color__text: #{$WHITE};
+    }
+}

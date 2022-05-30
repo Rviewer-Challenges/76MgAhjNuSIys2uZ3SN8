@@ -1,0 +1,88 @@
+.board {
+	display: grid;
+	width: 100%;
+	padding: 15px;
+	column-gap: 15px;
+	row-gap: 15px;
+	max-width: 100%;
+}
+
+.board--easy {
+	@extend .board;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+}
+
+.board--medium {
+	@extend .board;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	column-gap: 10px;
+	@media (min-width: $MD) {
+		column-gap: 15px;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(4, 1fr);
+	}
+}
+
+.board--hard {
+	@extend .board;
+	grid-template-columns: repeat(5, 1fr);
+	grid-template-rows: repeat(6, 1fr);
+	column-gap: 5px;
+	@media (min-width: $MD) {
+		column-gap: 15px;
+		grid-template-columns: repeat(6, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+	}
+}
+
+.card {
+	display: flex;
+	flex-grow: 1;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 15px 0;
+	background-color: var(--color__background);
+	border: 1px solid var(--color__transparent);
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px var(--color__transparent);
+	&__logo {
+		width: 40%;
+		fill: var(--color__text);
+		height: 60px;
+		@media (min-width: $SM) {
+			height: 80px;
+		}
+		@media (min-width: $LG) {
+			height: 100px;
+		}
+	}
+	&__image {
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	&--revealed {
+		@include keyframes(fade) {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@include animate(fade, 0.1s, linear, 1);
+	}
+
+	&--resolved {
+		border: 1.5px solid $G_GREEN;
+	}
+	&:hover {
+		cursor: pointer;
+	}
+}

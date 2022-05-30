@@ -1,0 +1,39 @@
+// FONTS
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500&display=swap');
+
+// BASIC COLORS
+$WHITE: #fff;
+$BLACK: #000;
+
+// LIGHT MODE COLORS
+$GRAY-900: #bfbfbf;
+$GRAY-100: #f7f7f7;
+// $BLUE-900: #101e2c;
+// $BLUE-600: #101e2c;
+
+// DARK MODE COLORS
+$DARK-900: #202020;
+$DARK-600: #3f3f3f;
+
+// GAME COLORS
+$G_BLACK: #000;
+$G_GRAY: #dedede;
+$G_GREEN: #76ba0f;
+$G_YELLOW: #ffcd2a;
+$G_RED: #d0240d;
+$G_BLUE: #0861a9;
+
+// BREAKPOINTS
+$SM: '640px';
+$MD: '768px';
+$LG: '1024px';
+$XL: '1280px';
+
+// RESET STYLES
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+}

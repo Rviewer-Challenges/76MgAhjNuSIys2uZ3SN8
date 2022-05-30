@@ -1,0 +1,56 @@
+.header {
+	padding: 10px 20px;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: var(--color__text);
+	background-color: var(--color__background);
+	@media (min-width: $MD) {
+		background-color: transparent;
+		padding: 20px 20px 0;
+		height: 75px;
+	}
+	&__container {
+		display: flex;
+	}
+	&__logo {
+		width: 40px;
+		height: 30px;
+		align-self: center;
+		fill: var(--color__text);
+		@media (min-width: $MD) {
+			display: none;
+		}
+	}
+}
+
+.nav {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	&__menu {
+		&__item {
+			display: flex;
+		}
+	}
+	&__button {
+		border: 0;
+		background-color: var(--color__transparent);
+		padding: 8px;
+		border-radius: 20px;
+		color: var(--color__text);
+		@media (min-width: $MD) {
+			padding: 10px;
+		}
+		&__icon {
+			font-size: 18px;
+			@media (min-width: $MD) {
+				font-size: 22px;
+			}
+		}
+	}
+	&__button:hover {
+		cursor: pointer;
+	}
+}
