@@ -7,7 +7,7 @@ class Game {
 		this.level = level;
 		this.score = 0;
 		this.movements = 0;
-		this.time = 2;
+		this.time = 60;
 		this.cards = [];
 		this.open_cards = [];
 		this.in_game = false;
@@ -31,17 +31,17 @@ class Game {
 				break;
 		}
 		const images = get_images(n_cards);
-		let htmlCards = '';
-		for (let i = 0; i < n_cards; i++) {
-			let card = new Card(i, images[i]);
-			htmlCards += card.get_html();
-			this.cards.push(card);
-		}
 		const board = document.getElementById('board');
+		board.innerHTML = '';
 		board.removeAttribute('class');
 		board.classList.add(`board--${this.level}`);
-		board.innerHTML = htmlCards;
 
+		for (let i = 0; i < n_cards; i++) {
+			let card = new Card(i, images[i]);
+			board.appendChild(card.get_html_element());
+			this.cards.push(card);
+		}
+		
 		this.in_game = true;
 		this.start_timer();
 	}

@@ -1,3 +1,5 @@
+import hacker_svg from '../../assets/hacker.svg';
+
 class Card {
 	constructor(id, image) {
 		this.id = id;
@@ -5,8 +7,28 @@ class Card {
 		this.state = 'hidden';
 	}
 
-	get_html() {
-		return `<div class="card" id="card-${this.id}" onclick="show_card(${this.id})"><svg role="img" class="card__logo"><use href="./assets/hacker.svg#img_hacker" /></svg></div>`;
+	create_svg() {
+		const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+		svg.classList.add('card__logo');
+		svg.setAttribute('role', 'img');
+
+		const use = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+		use.setAttribute('href', `.${hacker_svg}#img_hacker`);
+
+		svg.appendChild(use);
+
+		return svg;
+	}
+
+	get_html_element() {
+		const card = document.createElement('div');
+		card.classList.add('card');
+		card.setAttribute('id', `card-${this.id}`);
+		card.setAttribute('onclick', `show_card(${this.id})`);
+
+		card.appendChild(this.create_svg());
+
+		return card;
 	}
 
 	get_image() {
@@ -15,8 +37,8 @@ class Card {
 
 	set_resolved() {
 		this.state = 'resolved';
-        const html_card = document.getElementById(`card-${this.id}`);
-        html_card.classList.add('card--resolved');
+		const html_card = document.getElementById(`card-${this.id}`);
+		html_card.classList.add('card--resolved');
 	}
 
 	reveal() {
@@ -31,9 +53,10 @@ class Card {
 	hide() {
 		if (this.state == 'revealed') {
 			const html_card = document.getElementById(`card-${this.id}`);
-			if(html_card){
+			if (html_card) {
 				html_card.classList.remove('card--revealed');
-				html_card.innerHTML = `<svg role="img" class="card__logo"><use href="./assets/hacker.svg#img_hacker" /></svg>`;
+				html_card.innerHTML = '';
+				html_card.appendChild(this.create_svg());
 				html_card.classList.add('card--revealed');
 				this.state = 'hidden';
 			}
