@@ -10,5 +10,8 @@
   "devDependencies": {
     "sass": "^1.52.1",
     "vite": "^2.9.9"
+  },
+  "dependencies": {
+    "glob": "^8.0.3"
   }
 }
